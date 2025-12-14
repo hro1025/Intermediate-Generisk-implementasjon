@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Intermediate-Generisk-implementasjon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6f0470de84c09abf631e8a78ff0843a6ece6b71")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3d8446113ee08f615134bb6b364912b02f89482")]
 [assembly: System.Reflection.AssemblyProductAttribute("Intermediate-Generisk-implementasjon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Intermediate-Generisk-implementasjon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

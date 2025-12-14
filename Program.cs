@@ -2,8 +2,5 @@
 
 class Program
 {
-    static void Main(string[] args)
-    {
-        Console.WriteLine("test etstey7dfgwetyudf");
-    }
+    static void Main(string[] args) { }
 }
