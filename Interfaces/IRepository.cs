@@ -1,3 +1,14 @@
+using Intermediate_Generisk_implementasjon.Classes;
+
 namespace Intermediate_Generisk_implementasjon.interfaces;
 
-public class IRepository<T> { }
+public interface IRepository<T>
+{
+    void Create();
+
+    void Read();
+
+    void Update(UserInfo user);
+
+    void Delete(int Id);
+}

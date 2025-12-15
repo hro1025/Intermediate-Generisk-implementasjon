@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\roani\\.nuget\\packages\\": {}
+    "C:\\Users\\hro10\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\roani\\Desktop\\C#\\Intermediate-Generisk-implementasjon\\Intermediate-Generisk-implementasjon.csproj",
+      "projectUniqueName": "C:\\Users\\hro10\\Desktop\\C#\\Intermediate-Generisk-implementasjon\\Intermediate-Generisk-implementasjon.csproj",
       "projectName": "Intermediate-Generisk-implementasjon",
-      "projectPath": "C:\\Users\\roani\\Desktop\\C#\\Intermediate-Generisk-implementasjon\\Intermediate-Generisk-implementasjon.csproj",
-      "packagesPath": "C:\\Users\\roani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\roani\\Desktop\\C#\\Intermediate-Generisk-implementasjon\\obj\\",
+      "projectPath": "C:\\Users\\hro10\\Desktop\\C#\\Intermediate-Generisk-implementasjon\\Intermediate-Generisk-implementasjon.csproj",
+      "packagesPath": "C:\\Users\\hro10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hro10\\Desktop\\C#\\Intermediate-Generisk-implementasjon\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\roani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\hro10\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
