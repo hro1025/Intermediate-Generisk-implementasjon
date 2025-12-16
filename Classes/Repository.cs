@@ -12,7 +12,7 @@ public class Repository<T> : IRepository<T>
 
     public void Create()
     {
-        // Sets the next highest Id and user Id
+        // Sets the next highest Id
         var id = userList.Max(u => u.Id) + 1;
 
         // Gets the info about the user
