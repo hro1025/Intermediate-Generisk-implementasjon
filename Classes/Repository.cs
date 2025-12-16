@@ -14,12 +14,12 @@ public class Repository<T> : IRepository<T>
     {
         var id = userList.Max(u => u.Id) + 1;
         var userId = userList.Max(u => u.userId) + 1;
-        Console.WriteLine("Pls write the users Name:");
+        Console.Write("Write the users Name: ");
         var userName = Console.ReadLine();
-        Console.WriteLine("Pls write the users Age:");
+        Console.Write("Write the users Age: ");
         var userAge = Console.ReadLine();
         Int32.TryParse(userAge, out var age);
-        Console.WriteLine("Pls write the users Mail address:");
+        Console.Write("Write the users Mail address: ");
         var userMail = Console.ReadLine();
 
         var user = CreateUser(id++, userId++, userName!, age, userMail!);
@@ -42,7 +42,7 @@ public class Repository<T> : IRepository<T>
 
     public void Delete()
     {
-        Console.WriteLine("Pls write the users ID to delete:");
+        Console.Write("Write the users ID to delete: ");
         var user = Console.ReadLine();
         Int32.TryParse(user, out var userId);
 
@@ -68,7 +68,7 @@ public class Repository<T> : IRepository<T>
 
     public void Update(UserInfo user)
     {
-        Console.WriteLine("Pls write the users Id");
+        Console.Write("Write the users Id: ");
         var input = Console.ReadLine();
         Int32.TryParse(input, out var userId);
         if (userId >= 0)
@@ -93,12 +93,12 @@ public class Repository<T> : IRepository<T>
 
     private UserInfo updateInfo(int id)
     {
-        Console.WriteLine("Pls write the new Name:");
+        Console.Write("Write the new Name: ");
         var userName = Console.ReadLine();
-        Console.WriteLine("Pls write the new Age:");
+        Console.Write("Write the new Age: ");
         var userAge = Console.ReadLine();
         Int32.TryParse(userAge, out var age);
-        Console.WriteLine("Pls write the new Mail address:");
+        Console.Write("Write the new Mail address: ");
         var userMail = Console.ReadLine();
 
         var user = new UserInfo
