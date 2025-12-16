@@ -6,9 +6,9 @@ public interface IRepository<T>
 {
     void Create();
 
-    void Read();
+    void showUsers();
 
     void Update(UserInfo user);
 
-    void Delete(int Id);
+    void Delete();
 }

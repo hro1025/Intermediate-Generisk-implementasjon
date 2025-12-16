@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3iOOnEnHGE0=",
+  "dgSpecHash": "Pq6QRlPDtHw=",
   "success": true,
   "projectFilePath": "C:\\Users\\hro10\\Desktop\\C#\\Intermediate-Generisk-implementasjon\\Intermediate-Generisk-implementasjon.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\hro10\\.nuget\\packages\\spectre.console\\0.54.0\\spectre.console.0.54.0.nupkg.sha512"
+  ],
   "logs": []
 }

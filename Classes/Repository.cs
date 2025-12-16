@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Intermediate_Generisk_implementasjon.interfaces;
 
 namespace Intermediate_Generisk_implementasjon.Classes;
@@ -13,16 +14,16 @@ public class Repository<T> : IRepository<T>
     {
         var id = userList.Max(u => u.Id) + 1;
         var userId = userList.Max(u => u.userId) + 1;
-        Console.WriteLine("Enter Name");
+        Console.WriteLine("Pls write the users Name:");
         var userName = Console.ReadLine();
-        Console.WriteLine("Enter Age");
+        Console.WriteLine("Pls write the users Age:");
         var userAge = Console.ReadLine();
         Int32.TryParse(userAge, out var age);
-        Console.WriteLine("Enter Mail");
+        Console.WriteLine("Pls write the users Mail address:");
         var userMail = Console.ReadLine();
 
         var user = CreateUser(id++, userId++, userName!, age, userMail!);
-        Console.WriteLine("A new user was created");
+        Console.WriteLine("Your user was successfully created");
         userList.Add(user);
     }
 
@@ -39,35 +40,65 @@ public class Repository<T> : IRepository<T>
         return user;
     }
 
-    public void Delete(int Id)
+    public void Delete()
     {
-        var userDelete = userList.FindIndex(u => u.Id == Id);
-        userList.RemoveAt(userDelete);
+        Console.WriteLine("Pls write the users ID to delete:");
+        var user = Console.ReadLine();
+        Int32.TryParse(user, out var userId);
+
+        if (userId >= 0)
+        {
+            var userDelete = userList.FindIndex(u => u.Id == userId);
+
+            if (userDelete >= 0)
+            {
+                userList.RemoveAt(userDelete);
+                Console.WriteLine($"User with Id {userId} has been successfully Deleted.");
+            }
+            else
+            {
+                Console.WriteLine($"Error: User with ID {userId} not found.");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Error: Pls write the users ID.");
+        }
     }
 
     public void Update(UserInfo user)
     {
-        var userUpdate = userList.FindIndex(u => u.Id == user.Id);
-        if (userUpdate >= 0)
+        Console.WriteLine("Pls write the users Id");
+        var input = Console.ReadLine();
+        Int32.TryParse(input, out var userId);
+        if (userId >= 0)
         {
-            var updatedInfo = updateInfo(user.Id);
-            userList[userUpdate] = updatedInfo;
-            Console.WriteLine($"User with Id {user.Id} has been successfully updated.");
+            var userUpdate = userList.FindIndex(u => u.Id == userId);
+            if (userUpdate >= 0)
+            {
+                var updatedInfo = updateInfo(userId);
+                userList[userUpdate] = updatedInfo;
+                Console.WriteLine($"User with Id {userId} has been successfully updated.");
+            }
+            else
+            {
+                Console.WriteLine($"Error: User with Id {userId} not found. Update failed.");
+            }
         }
         else
         {
-            Console.WriteLine($"Error: User with Id {user.Id} not found. Update failed.");
+            Console.WriteLine($"Error: Pls write the users ID.");
         }
     }
 
     private UserInfo updateInfo(int id)
     {
-        Console.WriteLine("Enter Name");
+        Console.WriteLine("Pls write the new Name:");
         var userName = Console.ReadLine();
-        Console.WriteLine("Enter Age");
+        Console.WriteLine("Pls write the new Age:");
         var userAge = Console.ReadLine();
         Int32.TryParse(userAge, out var age);
-        Console.WriteLine("Enter Mail");
+        Console.WriteLine("Pls write the new Mail address:");
         var userMail = Console.ReadLine();
 
         var user = new UserInfo
@@ -81,7 +112,7 @@ public class Repository<T> : IRepository<T>
         return user;
     }
 
-    public void Read()
+    public void showUsers()
     {
         foreach (var user in userList)
         {
