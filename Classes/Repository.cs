@@ -1,19 +1,21 @@
-using System.Diagnostics.CodeAnalysis;
 using Intermediate_Generisk_implementasjon.interfaces;
+using Intermediate_Generisk_implementasjon.Models;
 
 namespace Intermediate_Generisk_implementasjon.Classes;
 
 public class Repository<T> : IRepository<T>
 {
-    private List<UserInfo> userList = new List<UserInfo>
+    private List<UserInfo> userList = new List<UserInfo> // creates the the list
     {
-        new UserInfo { Id = 1, userId = 1 },
+        new UserInfo { Id = 1 }, // Sets default Id to 1
     };
 
     public void Create()
     {
+        // Sets the next highest Id and user Id
         var id = userList.Max(u => u.Id) + 1;
-        var userId = userList.Max(u => u.userId) + 1;
+
+        // Gets the info about the user
         Console.Write("Write the users Name: ");
         var userName = Console.ReadLine();
         Console.Write("Write the users Age: ");
@@ -22,17 +24,18 @@ public class Repository<T> : IRepository<T>
         Console.Write("Write the users Mail address: ");
         var userMail = Console.ReadLine();
 
-        var user = CreateUser(id++, userId++, userName!, age, userMail!);
+        // Creates the user and adding it do the list
+        var user = CreateUser(id, userName!, age, userMail!);
         Console.WriteLine("Your user was successfully created");
         userList.Add(user);
     }
 
-    public UserInfo CreateUser(int id, int userId, string username, int age, string usermail)
+    // Assign the different info to the user property
+    public UserInfo CreateUser(int id, string username, int age, string usermail)
     {
         var user = new UserInfo
         {
             Id = id,
-            userId = userId,
             userName = username,
             userAge = age,
             userMail = usermail,
@@ -42,14 +45,18 @@ public class Repository<T> : IRepository<T>
 
     public void Delete()
     {
+        // Gets the id from the user and check if its an number
         Console.Write("Write the users ID to delete: ");
         var user = Console.ReadLine();
-        Int32.TryParse(user, out var userId);
+        // If its an nummber then it returns true
+        var validNumber = int.TryParse(user, out var userId);
 
-        if (userId >= 0)
+        // If it is a number AND greater than 0, then continue.
+        if (validNumber && userId > 0)
         {
+            // Gets the user to delete from userList
             var userDelete = userList.FindIndex(u => u.Id == userId);
-
+            // If user exist then it deletes the user, and if not then error
             if (userDelete >= 0)
             {
                 userList.RemoveAt(userDelete);
@@ -66,16 +73,22 @@ public class Repository<T> : IRepository<T>
         }
     }
 
-    public void Update(UserInfo user)
+    public void Update()
     {
+        // Gets the id from the user and checks if its an number
         Console.Write("Write the users Id: ");
         var input = Console.ReadLine();
-        Int32.TryParse(input, out var userId);
-        if (userId >= 0)
+        var validNumber = int.TryParse(input, out var userId);
+
+        // If it is a number AND greater than 0, then continue.
+        if (validNumber && userId > 0)
         {
+            // Gets the user from the userList
             var userUpdate = userList.FindIndex(u => u.Id == userId);
+
             if (userUpdate >= 0)
             {
+                // Updates the user info
                 var updatedInfo = updateInfo(userId);
                 userList[userUpdate] = updatedInfo;
                 Console.WriteLine($"User with Id {userId} has been successfully updated.");
@@ -93,6 +106,7 @@ public class Repository<T> : IRepository<T>
 
     private UserInfo updateInfo(int id)
     {
+        // Gets the info about the user and sets the new info to the user
         Console.Write("Write the new Name: ");
         var userName = Console.ReadLine();
         Console.Write("Write the new Age: ");
@@ -104,7 +118,6 @@ public class Repository<T> : IRepository<T>
         var user = new UserInfo
         {
             Id = id,
-            userId = id,
             userName = userName!,
             userAge = age,
             userMail = userMail!,
@@ -112,12 +125,13 @@ public class Repository<T> : IRepository<T>
         return user;
     }
 
+    // shows all the user in the repository
     public void showUsers()
     {
         foreach (var user in userList)
         {
             Console.WriteLine(
-                $"ID: {user.Id}, User ID: {user.userId}, Username: {user.userName}, User age: {user.userAge}, User Email: {user.userMail}"
+                $"ID: {user.Id}, Username: {user.userName}, User age: {user.userAge}, User Email: {user.userMail}"
             );
         }
     }

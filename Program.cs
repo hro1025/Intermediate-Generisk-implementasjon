@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using Intermediate_Generisk_implementasjon.Classes;
+﻿using Intermediate_Generisk_implementasjon.Classes;
+using Intermediate_Generisk_implementasjon.Models;
 using Spectre.Console;
 
 namespace Intermediate_Generisk_implementasjon;
@@ -9,9 +9,10 @@ class Program
     static void Main(string[] args)
     {
         var repo = new Repository<UserInfo>();
-        var user = new UserInfo();
+
         while (true)
         {
+            // create the selection menu
             Console.WriteLine();
             var operation = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
@@ -26,7 +27,7 @@ class Program
                     break;
 
                 case "Update":
-                    repo.Update(user);
+                    repo.Update();
                     break;
 
                 case "Delete":
